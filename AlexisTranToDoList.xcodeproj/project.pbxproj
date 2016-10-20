@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B342E64D1DB87467004E4A84 /* statsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B342E64C1DB87467004E4A84 /* statsViewController.swift */; };
 		B3C7AB4E1DB81DD100C98D2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7AB4D1DB81DD100C98D2A /* AppDelegate.swift */; };
 		B3C7AB501DB81DD100C98D2A /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7AB4F1DB81DD100C98D2A /* TaskViewController.swift */; };
 		B3C7AB531DB81DD100C98D2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3C7AB511DB81DD100C98D2A /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B342E64C1DB87467004E4A84 /* statsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsViewController.swift; sourceTree = "<group>"; };
 		B3C7AB4A1DB81DD100C98D2A /* AlexisTranToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlexisTranToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C7AB4D1DB81DD100C98D2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3C7AB4F1DB81DD100C98D2A /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				B3C7AB4D1DB81DD100C98D2A /* AppDelegate.swift */,
 				B3C7AB4F1DB81DD100C98D2A /* TaskViewController.swift */,
 				B3C7AB511DB81DD100C98D2A /* Main.storyboard */,
+				B342E64C1DB87467004E4A84 /* statsViewController.swift */,
 				B3C7AB7F1DB823A800C98D2A /* TaskTableViewController.swift */,
 				B3C7AB7D1DB822C100C98D2A /* TaskTableViewCell.swift */,
 				B3C7AB541DB81DD100C98D2A /* Assets.xcassets */,
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B342E64D1DB87467004E4A84 /* statsViewController.swift in Sources */,
 				B3C7AB801DB823A800C98D2A /* TaskTableViewController.swift in Sources */,
 				B3C7AB7E1DB822C100C98D2A /* TaskTableViewCell.swift in Sources */,
 				B3C7AB501DB81DD100C98D2A /* TaskViewController.swift in Sources */,
@@ -517,6 +521,7 @@
 				B3C7AB741DB81DD100C98D2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3C7AB751DB81DD100C98D2A /* Build configuration list for PBXNativeTarget "AlexisTranToDoListTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +530,7 @@
 				B3C7AB771DB81DD100C98D2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3C7AB781DB81DD100C98D2A /* Build configuration list for PBXNativeTarget "AlexisTranToDoListUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +539,7 @@
 				B3C7AB7A1DB81DD100C98D2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

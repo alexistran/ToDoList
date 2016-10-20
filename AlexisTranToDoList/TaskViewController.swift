@@ -16,6 +16,9 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var task: Task?
+    var tasks = [Task]()
+  
+   
     // MARK: UITextFieldDelegate
 //    func textFieldDidBeginEditing(textField: UITextField) {
 //        // Disable the Save button while editing.
@@ -26,15 +29,18 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
 //        let text = taskTextField.text ?? ""
 //        saveButton.isEnabled = !text.isEmpty
 //    }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard.
         textField.resignFirstResponder()
         return true
     }
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
 //        checkValidTaskName()
 //        navigationItem.title = textField.text
-        }
+  
+        let t = taskTextField.text
+        task = Task(task: t!, date: NSDate(), checked: false)
+    }
     
     // MARK: Navigation
     
@@ -43,10 +49,12 @@ class TaskViewController: UIViewController, UITextFieldDelegate, UINavigationCon
     }
     
     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print(sender)   
         if saveButton === sender {
             let t = taskTextField.text ?? ""
-            task = Task(task: t)
-            (segue.destination as! TaskTableViewController).tasks.append(task!)
+            task = Task(task: t, date: NSDate(), checked: false)
+            tasks.append(task!)
+            (segue.destination as! TaskTableViewController).tasks = tasks
         }
     }
     

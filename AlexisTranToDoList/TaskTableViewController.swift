@@ -12,25 +12,44 @@ class TaskTableViewController: UITableViewController {
     // MARK: Properties
     
     var tasks = [Task]()
+    var numDeleted = 0
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+     //   let now = NSDate()
+//        var index = 0
+//        
+//        for task in tasks {
+//            if task.checked == true {
+//                // && hasbeenoneday
+//               // tasks.remove(at: index)
+//                
+//            } else {
+//                index += 1
+//            }
+//        }
+        //super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         //loadSampleTasks()
-    }
-    func loadSampleTasks() {
-        let task1 = Task(task: "Wash Dishes")!
         
-        let task2 = Task(task: "Do Laundry")!
         
-        let task3 = Task(task: "Finish hw")!
-        tasks += [task1, task2, task3]
     }
+//    func differenceInDaysWithDate(date: NSDate) -> Int {
+//        
+//    }
+//    func loadSampleTasks() {
+//        let task1 = Task(task: "Wash Dishes")!
+//        
+//        let task2 = Task(task: "Do Laundry")!
+//        
+//        let task3 = Task(task: "Finish hw")!
+//        tasks += [task1, task2, task3]
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,6 +80,10 @@ class TaskTableViewController: UITableViewController {
         return cell
     }
     
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        (segue.destination as! TaskViewController).tasks = tasks
+        (segue.destination as! statsViewController).currNum.text = String(numDeleted)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -106,10 +129,32 @@ class TaskTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        if cell?.accessoryType == .checkmark {
+            cell?.accessoryType = .none
+            tasks[indexPath.row].checked = false
+            
+        
+        } else {
+            cell?.accessoryType = .checkmark
+            tasks[indexPath.row].checked = true
+            tasks[indexPath.row].date = NSDate()
+//            tasks.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            numDeleted+=1
+           
+        }
+    }
     @IBAction func unwindToTaskList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? TaskViewController, let task = sourceViewController.task {
+//        let sourceViewController = sender.source as? TaskViewController
+//        print(sourceViewController?.task)
+        if let sourceViewController = sender.source as? TaskViewController {
+            sourceViewController.textFieldDidEndEditing(sourceViewController.taskTextField)
+            let task = sourceViewController.task
             let newIndexPath = IndexPath(row: tasks.count, section: 0)
-            tasks.append(task)
+            tasks.append(task!)
+    
             tableView.insertRows(at: [newIndexPath], with: .bottom)
         }
     }
